@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Todo List</title>
+</head>
+<body>
+    <header>
+    <h1>Todo List</h1>
+    <hr>
+    </header>
+    <section>
+    <h2>Add your task</h2>
+    <input type="text" id="taskInput" placeholder="Type your task" />
+    <select id="priority">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+    </select>
+    <button id="addTaskBtn">+</button>
+    </section>
+    <section>
+    <h4>Stats:</h4>
+    </section>
+    <section>
+    <h2>Search</h2>
+    <input type="text" id="searchInput" placeholder="Search tasks..." />
+    <button id="clearSearchBtn">⌫</button>
+    </section>
+    <section>
+    <h2>Filter</h2>
+    <label for="filter">Filter:</label>
+    <select id="filter">
+        <option value="all">All</option>
+        <option value="done">Done</option>
+        <option value="todo">To do</option>
+    </select>
+    <hr>
+    </section>
+
+</body>
+</html>
