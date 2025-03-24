@@ -1,0 +1,81 @@
+body {
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(180deg, #000000, #2c3450);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    }
+    
+    #title-todo{
+    color: #ffffff;
+    font-size: 100px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }   
+
+    #TodoList {
+        width: 80%;       
+        max-width: 800px; 
+        margin: auto;     
+        padding: 2rem; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        }
+        
+        #Task-section{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+        
+        #Task-section{
+            margin-right: 20px;
+        }
+
+        .subtitle{
+            color: #ffffffe7;
+            font-size: 30px;
+            text-shadow: 0 0 3px #ffffff;
+        }
+    
+        
+
+        input, select, button {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 10px; 
+            border: 1px solid #171324;
+            background-color: #333;
+            color: white;
+        }
+        
+        input {
+            margin-right: 0.5em;
+        }
+        
+
+        button {
+            background-color: #ffffff;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            width: 30px;
+        }
+
+        button:hover{
+            background-color: #bbbbbb;
+        }
+        
+input:hover, select:hover {
+    border-color: #cccccc;
+}
+
+input:focus, select:focus, button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+input, select, button {
+    box-shadow: 2px 2px 5px #2e2e2e;
+}
