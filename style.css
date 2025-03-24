@@ -9,7 +9,7 @@ body {
     #title-todo{
     color: #ffffff;
     font-size: 100px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px #e4d9d9;
     }   
 
     #TodoList {
@@ -78,4 +78,60 @@ input:focus, select:focus, button:focus {
 
 input, select, button {
     box-shadow: 2px 2px 5px #2e2e2e;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #353550;
+    color: #ffffff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-left: 30em;
+    margin-right: 30em;
+}
+
+.high {
+    border-left: 5px solid red;
+}
+
+.medium {
+    border-left: 5px solid orange;
+}
+
+.low {
+    border-left: 5px solid #00da0b;
+}
+
+.delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: #ffdddd;
+    border: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-10px); /* Começa um pouco acima */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
