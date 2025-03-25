@@ -1,83 +1,80 @@
 body {
-        height: 100vh;
-        margin: 0;
-        background: linear-gradient(180deg, #000000, #2c3450);
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, #000000, #2c3450);
     text-align: center;
     font-family: Arial, sans-serif;
-    }
-    
-    #title-todo{
+}
+
+#title-todo {
     color: #ffffff;
-    font-size: 100px;
+    font-size: 80px;
     text-shadow: 0 0 10px #e4d9d9;
-    }   
+}
 
-    #TodoList {
-        width: 80%;       
-        max-width: 800px; 
-        margin: auto;     
-        padding: 2rem; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        }
-        
-        #Task-section{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        }
-        
-        #Task-section{
-            margin-right: 20px;
-        }
+#TodoList {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        .subtitle{
-            color: #ffffffe7;
-            font-size: 30px;
-            text-shadow: 0 0 3px #ffffff;
-        }
-    
-        
+#Task-section {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+}
 
-        input, select, button {
-            padding: 5px;
-            font-size: 16px;
-            border-radius: 10px; 
-            border: 1px solid #171324;
-            background-color: #333;
-            color: white;
-        }
-        
-        input {
-            margin-right: 0.5em;
-        }
-        
+.subtitle {
+    color: #ffffffe7;
+    font-size: 30px;
+    text-shadow: 0 0 3px #ffffff;
+}
 
-        button {
-            background-color: #ffffff;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-            width: 30px;
-        }
+input,
+select,
+button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #171324;
+    background-color: #333;
+    color: white;
+    box-shadow: 2px 2px 5px #2e2e2e;
+}
 
-        button:hover{
-            background-color: #bbbbbb;
-        }
-        
-input:hover, select:hover {
+input {
+    margin-right: 0.5em;
+    width: 200px;
+}
+
+button {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+}
+
+button:hover {
+    background-color: #bbbbbb;
+}
+
+input:hover,
+select:hover {
     border-color: #cccccc;
 }
 
-input:focus, select:focus, button:focus {
+input:focus,
+select:focus,
+button:focus {
     outline: none;
     box-shadow: none;
-}
-
-input, select, button {
-    box-shadow: 2px 2px 5px #2e2e2e;
 }
 
 .task-item {
@@ -87,10 +84,13 @@ input, select, button {
     background: #353550;
     color: #ffffff;
     padding: 10px;
-    margin: 5px 0;
+    margin: 5px auto;
     border-radius: 5px;
-    margin-left: 30em;
-    margin-right: 30em;
+    max-width: 600px;
+    width: 100%; 
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .high {
@@ -113,10 +113,10 @@ input, select, button {
     color: #ffdddd;
     border: none;
     cursor: pointer;
-    padding: 15px 20px;
+    padding: 10px;
     font-size: 18px;
-    width: 30px;
-    height: 30px; 
+    width: 35px;
+    height: 35px;
 }
 
 @keyframes fadeIn {
@@ -130,8 +130,23 @@ input, select, button {
     }
 }
 
-.task-item {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(-10px); /* Começa um pouco acima */
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+@media (max-width: 768px) {
+
+    #TodoList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input, select, button {
+        width: 80%;
+        font-size: 18px;
+    }
+
+    .task-item {
+        width: 90%;
+        font-size: 18px;
+        margin: 10px auto;
+    }
 }

@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const prioritySelect = document.getElementById("priority");
     const taskList = document.getElementById("taskList");
 
+    let allTodos = getTodos();
+    renderTodos();
+
     addTaskBtn.addEventListener("click", addTodo);
 
     taskInput.addEventListener("keyup", (event) => {
@@ -18,28 +21,57 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Please enter a valid task.");
             return;
         }
+
+        const newTask = { text: taskText, priority: priority };
+        allTodos.push(newTask);
+        saveData();
+
+        createTaskElement(newTask);
     
+        taskInput.value = "";
+        taskInput.focus();
+    }
+
+    function createTaskElement(task) {
         const taskElement = document.createElement("li");
-        taskElement.classList.add("task-item", priority.toLowerCase());
+        taskElement.classList.add("task-item", task.priority.toLowerCase());
     
         taskElement.innerHTML = `
-            <span>${taskText} - <strong>${priority}</strong></span>
+            <span>${task.text} - <strong>${task.priority}</strong></span>
             <button class="delete-btn">[x]</button>
         `;
-    
+
         taskList.appendChild(taskElement);
+
         setTimeout(() => {
             taskElement.style.opacity = "1";
             taskElement.style.transform = "translateY(0)";
         }, 10);
-    
+
         taskElement.querySelector(".delete-btn").addEventListener("click", () => {
-            taskElement.style.opacity = "0";
-            taskElement.style.transform = "translateY(-10px)";
-            setTimeout(() => taskElement.remove(), 400); 
+            removeTodo(task, taskElement);
         });
-    
-        taskInput.value = "";
-        taskInput.focus();
-    }    
+    }
+
+    function removeTodo(task, element) {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(-10px)";
+        setTimeout(() => {
+            element.remove();
+            allTodos = allTodos.filter(t => t.text !== task.text || t.priority !== task.priority);
+            saveData();
+        }, 400);
+    }
+
+    function saveData() {
+        localStorage.setItem("toDo", JSON.stringify(allTodos));
+    }
+
+    function getTodos() {
+        return JSON.parse(localStorage.getItem("toDo")) || [];
+    }
+
+    function renderTodos() {
+        allTodos.forEach(task => createTaskElement(task));
+    }
 });
